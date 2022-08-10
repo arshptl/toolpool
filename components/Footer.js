@@ -84,9 +84,10 @@ const Footer = () => {
       <StyledLinks>
         <ol>
           {config.footerLinks &&
-            config.footerLinks.map(({ url, name }, i) => (
+            config.footerLinks.map(({ url, name, included }, i) => (
               <li key={i}>
-                <Link href={url}>{name}</Link>
+                {included ? <Link href={url}>{name}</Link> :
+                  <a href={url} target="_blank">{name}</a>}
               </li>
             ))}
         </ol>
